@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import Login from './Login';
+import Register from './Register';
+import { Routes, Route } from 'react-router-dom';
+import Admin from './Admin';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const ui = (
+    <Routes>
+      <Route path='/login' element={
+        <div className='row justify-content-center align-items-center vh-100 bg-light m-0'>
+          <div className="col-10 col-md-5 border p-4 form-container bg-white">
+            <Login />
+          </div>
+        </div>
+      } />
+
+
+      <Route path='/register' element={
+        <div className='row justify-content-center align-items-center vh-100 bg-light m-0'>
+          <div className="col-10 col-md-6 border p-4 form-container bg-white">
+            <Register />
+          </div>
+        </div>
+      } />
+
+      <Route path='/' element={<Admin />} />
+    </Routes>
   );
+
+  return ui;
 }
 
 export default App;
